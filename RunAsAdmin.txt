@@ -1,0 +1,7 @@
+if (new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator))
+	Application.Run(new MainForm());
+else
+{
+	_ = Process.Start(new ProcessStartInfo() { UseShellExecute = true, WorkingDirectory = Environment.CurrentDirectory, FileName = Application.ExecutablePath, Verb = "runas" });
+	Application.Exit();
+}

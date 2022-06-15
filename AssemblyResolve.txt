@@ -1,0 +1,7 @@
+string resourceName = new AssemblyName(args.Name).Name + ".dll", resource = Array.Find(Assembly.GetExecutingAssembly().GetManifestResourceNames(), element => element.EndsWith(resourceName));
+using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resource))
+{
+	byte[] assemblyData = new byte[stream.Length];
+	_ = stream.Read(assemblyData, 0, assemblyData.Length);
+	return Assembly.Load(assemblyData);
+}
