@@ -193,6 +193,45 @@ namespace DatabaseManager
                     conn.Close();
             }
         }
+        
+        public T Insert<T>(string tableName, List<string> columns, Dictionary<string, object> parameterValues, string returnColumn, bool keepConnectionOpen = false)
+        {
+            T res = default;
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
+                if (!IsTableExists(tableName, true))
+                    throw new Exception($"Table '{tableName}' is not exists");
+
+                string cmdText = $"INSERT INTO {tableName} ";
+
+                if (columns != null && columns.Any())
+                {
+                    string cols = string.Join(", ", columns);
+                    if (!IsColumnExists(tableName, cols, true))
+                        throw new Exception("All columns must be exists.");
+                    else
+                        cmdText += "(" + cols + ") ";
+                }
+                cmdText += $"OUTPUT Inserted.{returnColumn} VALUES ({string.Join(", ", parameterValues.Keys)})";
+
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = cmdText;
+                    foreach (var item in parameterValues)
+                        cmd.Parameters.AddWithValue(item.Key, item.Value);
+                    res = (T)cmd.ExecuteScalar();
+                }
+            }
+            finally
+            {
+                if (!keepConnectionOpen && conn.State != ConnectionState.Closed)
+                    conn.Close();
+            }
+            return res;
+        }
 
         public void Update(string tableName, Dictionary<string,(string, object)> columName_parameterName_value, string condition, Dictionary<string, object> conditionParameters, bool keepConnectionOpen = false)
         {
@@ -257,7 +296,7 @@ namespace DatabaseManager
             }
         }
 
-        private bool IsTableExists(string tableName, bool keepConnectionOpen = false)
+        public bool IsTableExists(string tableName, bool keepConnectionOpen = false)
         {
             bool res = false;
             try
@@ -281,7 +320,7 @@ namespace DatabaseManager
             return res;
         }
 
-        private bool IsColumnExists(string tableName, string columns, bool keepConnectionOpen = false)
+        public bool IsColumnExists(string tableName, string columns, bool keepConnectionOpen = false)
         {
             bool res = false;
             try
@@ -305,21 +344,47 @@ namespace DatabaseManager
             return res;
         }
 
+        public (bool, object) IsDataEntryExists(string tableName, string condition, Dictionary<string, object> conditionParameters, string columns = "*", bool keepConnectionOpen = false)
+        {
+            bool res = false;
+            object res2 = null;
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = $"SELECT {columns} FROM {tableName} {condition}";
+                    foreach (var item in conditionParameters)
+                        cmd.Parameters.AddWithValue(item.Key, item.Value);
+                    res2 = cmd.ExecuteScalar();
+                }
+                res = res2 != null;
+            }
+            catch { }
+            finally
+            {
+                if (!keepConnectionOpen && conn.State != ConnectionState.Closed)
+                    conn.Close();
+            }
+            return (res, res2);
+        }
+
         protected virtual void Dispose(bool disposing)
         {
             if (!disposedValue)
             {
-                /*if (disposing)
+                if (disposing)
                 {
+                    if (conn != null)
+                    {
+                        if (conn.State != ConnectionState.Closed)
+                            conn.Close();
+                        conn.Dispose();
+                        conn = null;
+                    }
                     // TODO: dispose managed state (managed objects)
-                }
-                */
-                if (conn != null)
-                {
-                    if (conn.State != ConnectionState.Closed)
-                        conn.Close();
-                    conn.Dispose();
-                    conn = null;
                 }
                 // TODO: free unmanaged resources (unmanaged objects) and override finalizer
                 // TODO: set large fields to null

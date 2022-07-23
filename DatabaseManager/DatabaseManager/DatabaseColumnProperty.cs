@@ -21,7 +21,7 @@
         public static class DataTypes
         {
             public const string INT = "INT";
-            public const string TEXT = "TEXT";
+            public const string TEXT = "VARCHAR(MAX)";
             public const string DATE = "DATE";
         }
 
