@@ -16,7 +16,7 @@ namespace Migros
 {
     internal static class Printer
     {
-        public static void Print(Cari cari, List<Siparis> siparisler)
+        internal static void Print(Cari cari, List<Siparis> siparisler)
         {
             var now = DateTime.Now;
             string fileName = "Migros-" + DateTime.Now.ToString("dd.MM.yyyy HH.mm.ss") + " " + cari.CariNo.ToString(Globals.settings.cariNoFormat);

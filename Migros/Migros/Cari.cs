@@ -17,14 +17,14 @@ namespace Migros
         }
 
         [JsonIgnore]
-        public ulong Id { get; set; }
+        internal ulong Id { get; set; }
 
-        public ulong CariNo { get; set; }
-        public string Isim { get; set; }
-        public string KartNo { get; set; }
+        internal ulong CariNo { get; set; }
+        internal string Isim { get; set; }
+        internal string KartNo { get; set; }
 
         [JsonIgnore]
-        public List<Siparis> Siparisler { get; set; }
+        internal List<Siparis> Siparisler { get; set; }
 
         [JsonIgnore]
         private bool siparislerHasLoaded = false;

@@ -15,15 +15,15 @@ namespace Migros
         }
 
         [JsonIgnore]
-        public ulong Id { get; set; }
+        internal ulong Id { get; set; }
 
-        public ulong SipNo { get; set; }
-        public long Puan { get; set; }
+        internal ulong SipNo { get; set; }
+        internal long Puan { get; set; }
 
         [JsonIgnore]
-        public decimal TL => Puan * Globals.settings.puanCarpani;
+        internal decimal TL => Puan * Globals.settings.puanCarpani;
 
-        public long Kullanilan { get; set; }
-        public DateTime IslemTarihi { get; set; }
+        internal long Kullanilan { get; set; }
+        internal DateTime IslemTarihi { get; set; }
     }
 }
