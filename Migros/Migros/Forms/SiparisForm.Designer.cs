@@ -13,7 +13,6 @@
 
         void InitializeComponent()
         {
-            Icon = Properties.Resources.icon;
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -240,6 +239,8 @@
             this.nudPuan.Name = "nudPuan";
             this.nudPuan.Size = new System.Drawing.Size(200, 22);
             this.nudPuan.TabIndex = 4;
+            this.nudPuan.Enter += new System.EventHandler(this.nuds_Enter);
+            this.nudPuan.MouseDown += new System.Windows.Forms.MouseEventHandler(this.nuds_MouseDown);
             // 
             // nudKullanilan
             // 
@@ -249,6 +250,8 @@
             this.nudKullanilan.Name = "nudKullanilan";
             this.nudKullanilan.Size = new System.Drawing.Size(200, 22);
             this.nudKullanilan.TabIndex = 4;
+            this.nudKullanilan.Enter += new System.EventHandler(this.nuds_Enter);
+            this.nudKullanilan.MouseDown += new System.Windows.Forms.MouseEventHandler(this.nuds_MouseDown);
             // 
             // dtpIslemTarihi
             // 
@@ -426,7 +429,6 @@
             // 
             // toolStripTextBox1
             // 
-            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
             this.toolStripTextBox1.TextChanged += new System.EventHandler(this.toolStripTextBox1_TextChanged);
@@ -441,6 +443,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = global::Migros.Properties.Resources.icon;
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SiparisForm";

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
@@ -14,18 +13,15 @@ namespace Migros.Forms
 
         List<Cari> cariler;
 
+        ulong maxCariNo;
+
         private void MainForm_Load(object sender, EventArgs e)
         {
-            Globals.dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Migros");
-            if (!Directory.Exists(Globals.dir))
-                Directory.CreateDirectory(Globals.dir);
             Settings.Read();
 
             searchTimer = new System.Threading.Timer(SearchTimerCallBack);
 
             cCariNo.DefaultCellStyle.Format = mtbCariNo.Mask = Globals.settings.cariNoFormat;
-
-            Globals.database = new Database();
 
             cariler = Globals.database.GetCariler();
             foreach (var item in cariler)
@@ -35,8 +31,6 @@ namespace Migros.Forms
 
             dgvCariler.Sort(cIsim, ListSortDirection.Ascending);
         }
-
-        ulong maxCariNo;
 
         private void MainForm_Shown(object sender, EventArgs e)
         {
@@ -57,6 +51,10 @@ namespace Migros.Forms
 
                 mtbCariNo.Enabled = tbIsim.Enabled = tbKartNo.Enabled = true;
                 btnSave.Enabled = btnDelete.Enabled = true;
+
+
+                UpdateToplamlar((ulong)cells[nameof(cId)].Value);
+                tableLayoutPanel3.Visible = true;
             }
             else
             {
@@ -65,7 +63,19 @@ namespace Migros.Forms
                 mtbCariNo.Clear();
                 tbIsim.Clear();
                 tbKartNo.Clear();
+                tableLayoutPanel3.Visible = false;
             }
+        }
+
+        private void UpdateToplamlar(ulong Id)
+        {
+            Cari cari = cariler.Find(f => f.Id == Id);
+            cari.GetSiparisler();
+            var toplamlar = cari.GetToplamlar();
+            label4.Text = "T. Puan: " + toplamlar.tPuan;
+            label5.Text = "T. TL: " + toplamlar.tTL.ToString(Globals.settings.tlFormat);
+            label6.Text = "T. Kullanılan: " + toplamlar.tKullanilan.ToString(Globals.settings.tlFormat);
+            label7.Text = "Kalan: " + toplamlar.kalan.ToString(Globals.settings.tlFormat);
         }
 
         private void dgvCariler_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -75,6 +85,7 @@ namespace Migros.Forms
             Hide();
             ulong Id = (ulong)dgvCariler.SelectedRows[0].Cells[nameof(cId)].Value;
             new SiparisForm(cariler.Find(f => f.Id == Id)).ShowDialog();
+            UpdateToplamlar(Id);
             Show();
         }
 
@@ -191,5 +202,7 @@ namespace Migros.Forms
                 }
             }
         }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e) => Globals.database.Backup();
     }
 }

@@ -5,32 +5,42 @@ namespace Migros
 {
     internal static class Globals
     {
-        public static string dir;
-        public static Settings settings { get; set; }
-        public static Database database { get; set; }
+        internal static Settings settings { get; set; }
+        internal static Database database { get; set; }
+
+
+        internal const string ApplicationDirName = "Migros";
+        internal static string ApplicationDirPath { get; set; }
+
+        internal const string CarilerDirName = "Cariler";
+        internal static string CarilerDirPath { get; set; }
+
+        internal const string SilinenCarilerDirName = "Silinen Cariler";
+        internal static string SilinenCarilerDirPath { get; set; }
+
+        internal const string YedeklerDirName = "Yedekler";
+        internal static string YedeklerDirPath { get; set; }
+
+        internal const string SettingsFileName = "settings.json";
+        internal static string SettingsFilePath { get; set; }
+
+        internal const string SiparislerDirName = "Siparişler";
+        internal const string SilinenSiparislerDirName = "Silinen Siparişler";
+        internal const string infoJsonFileName = "info.json";
     }
 
     internal class Settings
     {
-        public decimal puanCarpani { get; set; } = 0.2M;
-        public string cariNoFormat { get; set; } = "\\C0\\-00000";
-        public string siparisNoFormat { get; set; } = "\\S000000";
-        public string tarihFormat { get; set; } = "dd.MM.yyyy";
-        public string tlFormat { get; set; } = "0.0## \\T\\L";
-        public ulong lastCariId { get; set; } = 0;
-        public ulong lastSiparisId { get; set; } = 0;
+        internal decimal puanCarpani { get; set; } = 0.2M;
+        internal string cariNoFormat { get; set; } = "\\C0\\-00000";
+        internal string siparisNoFormat { get; set; } = "\\S000000";
+        internal string tarihFormat { get; set; } = "dd.MM.yyyy";
+        internal string tlFormat { get; set; } = "0.0## \\T\\L";
+        internal ulong lastCariId { get; set; } = 0;
+        internal ulong lastSiparisId { get; set; } = 0;
 
-        public void Save() => File.WriteAllText(Path.Combine(Globals.dir, "settings.json"), JsonConvert.SerializeObject(this));
+        internal void Save() => File.WriteAllText(Globals.SettingsFilePath, JsonConvert.SerializeObject(this));
 
-        public static void Read()
-        {
-            if (File.Exists(Path.Combine(Globals.dir, "settings.json")))
-                Globals.settings = JsonConvert.DeserializeObject<Settings>(File.ReadAllText(Path.Combine(Globals.dir, "settings.json")));
-            else
-            {
-                Globals.settings = new Settings();
-                Globals.settings.Save();
-            }
-        }
+        internal static void Read() => Globals.settings = JsonConvert.DeserializeObject<Settings>(File.ReadAllText(Globals.SettingsFilePath));
     }
 }

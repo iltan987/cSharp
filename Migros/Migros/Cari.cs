@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Migros
 {
@@ -25,16 +26,19 @@ namespace Migros
         [JsonIgnore]
         public List<Siparis> Siparisler { get; set; }
 
-        public void Save()
+        [JsonIgnore]
+        private bool siparislerHasLoaded = false;
+
+        internal void Save()
         {
-            string cariDir = Path.Combine(Globals.database.CarilerDir, Id.ToString());
+            string cariDir = Path.Combine(Globals.CarilerDirPath, Id.ToString());
             if (!Directory.Exists(cariDir))
             {
                 Directory.CreateDirectory(cariDir);
-                Directory.CreateDirectory(Path.Combine(cariDir, Globals.database.SiparislerDirName));
-                Directory.CreateDirectory(Path.Combine(cariDir, Globals.database.SilinenSiparislerDirName));
+                Directory.CreateDirectory(Path.Combine(cariDir, Globals.SiparislerDirName));
+                Directory.CreateDirectory(Path.Combine(cariDir, Globals.SilinenSiparislerDirName));
             }
-            File.WriteAllText(Path.Combine(cariDir, "info.json"), JsonConvert.SerializeObject(this));
+            File.WriteAllText(Path.Combine(cariDir, Globals.infoJsonFileName), JsonConvert.SerializeObject(this));
             if (Id > Globals.settings.lastCariId)
             {
                 Globals.settings.lastCariId = Id;
@@ -42,34 +46,37 @@ namespace Migros
             }
         }
 
-        public void Delete()
+        internal void Delete()
         {
-            string cariDir = Path.Combine(Globals.database.CarilerDir, Id.ToString());
-            Directory.Move(cariDir, Path.Combine(Globals.database.SilinenCarilerDir, Id + "-" + DateTime.Now.ToString("dd.MM.yyyy HH.mm.ss")));
+            string cariDir = Path.Combine(Globals.CarilerDirPath, Id.ToString());
+            Directory.Move(cariDir, Path.Combine(Globals.SilinenCarilerDirPath, Id + "-" + DateTime.Now.ToString("dd.MM.yyyy HH.mm.ss")));
         }
 
-        public void GetSiparisler()
+        internal void GetSiparisler()
         {
+            if (siparislerHasLoaded)
+                return;
             Siparisler = new List<Siparis>();
 
-            string siparislerPath = Path.Combine(Globals.dir, Globals.database.CarilerDir, Id.ToString(), Globals.database.SiparislerDirName);
+            string siparislerPath = Path.Combine(Globals.CarilerDirPath, Id.ToString(), Globals.SiparislerDirName);
             if (!Directory.Exists(siparislerPath))
                 Directory.CreateDirectory(siparislerPath);
 
             foreach (var item in Directory.GetDirectories(siparislerPath))
             {
-                var siparis = JsonConvert.DeserializeObject<Siparis>(File.ReadAllText(Path.Combine(item, "info.json")));
+                var siparis = JsonConvert.DeserializeObject<Siparis>(File.ReadAllText(Path.Combine(item, Globals.infoJsonFileName)));
                 siparis.Id = ulong.Parse(Path.GetFileName(item));
                 Siparisler.Add(siparis);
             }
+            siparislerHasLoaded = true;
         }
 
-        public void SaveSiparis(Siparis siparis)
+        internal void SaveSiparis(Siparis siparis)
         {
-            string siparisDir = Path.Combine(Globals.database.CarilerDir, Id.ToString(), Globals.database.SiparislerDirName, siparis.Id.ToString());
+            string siparisDir = Path.Combine(Globals.CarilerDirPath, Id.ToString(), Globals.SiparislerDirName, siparis.Id.ToString());
             if (!Directory.Exists(siparisDir))
                 Directory.CreateDirectory(siparisDir);
-            File.WriteAllText(Path.Combine(siparisDir, "info.json"), JsonConvert.SerializeObject(siparis));
+            File.WriteAllText(Path.Combine(siparisDir, Globals.infoJsonFileName), JsonConvert.SerializeObject(siparis));
             if (siparis.Id > Globals.settings.lastSiparisId)
             {
                 Globals.settings.lastSiparisId = siparis.Id;
@@ -80,8 +87,24 @@ namespace Migros
         internal void DeleteSiparis(Siparis siparis)
         {
             Siparisler.Remove(siparis);
-            string siparisDir = Path.Combine(Globals.database.CarilerDir, Id.ToString(), Globals.database.SiparislerDirName, siparis.Id.ToString());
-            Directory.Move(siparisDir, Path.Combine(Globals.database.CarilerDir, Id.ToString(), Globals.database.SilinenSiparislerDirName, siparis.Id + "-" + DateTime.Now.ToString("dd.MM.yyyy HH.mm.ss")));
+            string siparisDir = Path.Combine(Globals.CarilerDirPath, Id.ToString(), Globals.SiparislerDirName, siparis.Id.ToString());
+            Directory.Move(siparisDir, Path.Combine(Globals.CarilerDirPath, Id.ToString(), Globals.SilinenSiparislerDirName, siparis.Id + "-" + DateTime.Now.ToString("dd.MM.yyyy HH.mm.ss")));
+        }
+
+        internal Toplamlar GetToplamlar() => siparislerHasLoaded ? new Toplamlar(Siparisler.Select(f => f.Puan).Sum(), Siparisler.Select(f => f.Kullanilan).Sum()) : new Toplamlar(0, 0);
+
+        internal class Toplamlar
+        {
+            public Toplamlar(long tPuan, long tKullanilan)
+            {
+                this.tPuan = tPuan;
+                this.tKullanilan = tKullanilan;
+            }
+
+            internal long tPuan { get; set; }
+            internal decimal tTL => tPuan * Globals.settings.puanCarpani;
+            internal long tKullanilan { get; set; }
+            internal decimal kalan => tTL - tKullanilan;
         }
     }
 }

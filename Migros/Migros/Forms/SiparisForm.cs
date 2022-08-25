@@ -9,6 +9,7 @@ namespace Migros.Forms
     public partial class SiparisForm : Form
     {
         public Cari Cari { get; }
+        ulong maxSipNo;
 
         public SiparisForm(Cari cari)
         {
@@ -65,16 +66,13 @@ namespace Migros.Forms
             }
         }
 
-        ulong maxSipNo;
-
         private void UpdateToplamlar()
         {
-            long tPuan = Cari.Siparisler.Select(f => f.Puan).Sum(),
-                tKullanilan = Cari.Siparisler.Select(f => f.Kullanilan).Sum();
-            label5.Text = "T. Puan: " + tPuan;
-            label6.Text = "T. TL: " + (tPuan * Globals.settings.puanCarpani).ToString(Globals.settings.tlFormat);
-            label7.Text = "T. Kullanılan: " + tKullanilan.ToString(Globals.settings.tlFormat);
-            label8.Text = "Kalan: " + ((tPuan * Globals.settings.puanCarpani) - tKullanilan).ToString(Globals.settings.tlFormat);
+            var toplamlar = Cari.GetToplamlar();
+            label5.Text = "T. Puan: " + toplamlar.tPuan;
+            label6.Text = "T. TL: " + toplamlar.tTL.ToString(Globals.settings.tlFormat);
+            label7.Text = "T. Kullanılan: " + toplamlar.tKullanilan.ToString(Globals.settings.tlFormat);
+            label8.Text = "Kalan: " + toplamlar.kalan.ToString(Globals.settings.tlFormat);
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -190,10 +188,7 @@ namespace Migros.Forms
         }
 
         System.Threading.Timer searchTimer;
-        private void toolStripTextBox1_TextChanged(object sender, EventArgs e)
-        {
-            searchTimer.Change(1000, Timeout.Infinite);
-        }
+        private void toolStripTextBox1_TextChanged(object sender, EventArgs e) => searchTimer.Change(1000, Timeout.Infinite);
 
         private void SearchTimerCallBack(object state)
         {
@@ -222,5 +217,25 @@ namespace Migros.Forms
         }
 
         private void yazdırToolStripMenuItem_Click(object sender, EventArgs e) => Printer.Print(Cari, Cari.Siparisler.OrderBy(f => f.IslemTarihi).ToList());
+
+        bool selectByMouse = false;
+        private void nuds_Enter(object sender, EventArgs e)
+        {
+            NumericUpDown nud = sender as NumericUpDown;
+            nud.Select();
+            nud.Select(0, nud.Text.Length);
+            if (MouseButtons == MouseButtons.Left)
+                selectByMouse = true;
+        }
+
+        private void nuds_MouseDown(object sender, MouseEventArgs e)
+        {
+            NumericUpDown nud = sender as NumericUpDown;
+            if (selectByMouse)
+            {
+                nud.Select(0, nud.Text.Length);
+                selectByMouse = false;
+            }
+        }
     }
 }

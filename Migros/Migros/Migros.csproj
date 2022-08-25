@@ -130,6 +130,12 @@
     <EmbeddedResource Include="DLL\Microsoft.Extensions.Logging.dll" />
     <EmbeddedResource Include="DLL\Microsoft.Extensions.Options.dll" />
     <EmbeddedResource Include="DLL\Newtonsoft.Json.dll" />
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SiparisForm.resx">
+      <DependentUpon>SiparisForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>

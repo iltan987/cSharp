@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -12,6 +13,33 @@ namespace Migros
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
+
+
+            Globals.ApplicationDirPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), Globals.ApplicationDirName);
+            if (!Directory.Exists(Globals.ApplicationDirPath))
+                Directory.CreateDirectory(Globals.ApplicationDirPath);
+
+            Globals.CarilerDirPath = Path.Combine(Globals.ApplicationDirPath, Globals.CarilerDirName);
+            if (!Directory.Exists(Globals.CarilerDirPath))
+                Directory.CreateDirectory(Globals.CarilerDirPath);
+
+            Globals.SilinenCarilerDirPath = Path.Combine(Globals.ApplicationDirPath, Globals.SilinenCarilerDirName);
+            if (!Directory.Exists(Globals.SilinenCarilerDirPath))
+                Directory.CreateDirectory(Globals.SilinenCarilerDirPath);
+
+            Globals.YedeklerDirPath = Path.Combine(Globals.ApplicationDirPath, Globals.YedeklerDirName);
+            if (!Directory.Exists(Globals.YedeklerDirPath))
+                Directory.CreateDirectory(Globals.YedeklerDirPath);
+
+            Globals.SettingsFilePath = Path.Combine(Globals.ApplicationDirPath, Globals.SettingsFileName);
+            if (!File.Exists(Globals.SettingsFilePath))
+            {
+                Globals.settings = new Settings();
+                Globals.settings.Save();
+            }
+
+            Globals.database = new Database();
+
             Application.Run(new Forms.MainForm());
         }
 
