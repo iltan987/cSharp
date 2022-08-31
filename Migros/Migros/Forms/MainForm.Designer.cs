@@ -53,12 +53,12 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(660, 31);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(660, 27);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(300, 509);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(300, 513);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -81,7 +81,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(300, 101);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(300, 85);
             this.tableLayoutPanel3.TabIndex = 2;
             this.tableLayoutPanel3.Visible = false;
             // 
@@ -89,10 +89,10 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(107, 3);
+            this.label4.Location = new System.Drawing.Point(116, 3);
             this.label4.Margin = new System.Windows.Forms.Padding(3);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 20);
+            this.label4.Size = new System.Drawing.Size(68, 16);
             this.label4.TabIndex = 0;
             this.label4.Text = "T. Puan: ";
             // 
@@ -100,10 +100,10 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(117, 29);
+            this.label5.Location = new System.Drawing.Point(124, 25);
             this.label5.Margin = new System.Windows.Forms.Padding(3);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 20);
+            this.label5.Size = new System.Drawing.Size(51, 16);
             this.label5.TabIndex = 0;
             this.label5.Text = "T. TL: ";
             // 
@@ -111,10 +111,10 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(87, 55);
+            this.label6.Location = new System.Drawing.Point(100, 47);
             this.label6.Margin = new System.Windows.Forms.Padding(3);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(125, 20);
+            this.label6.Size = new System.Drawing.Size(100, 16);
             this.label6.TabIndex = 0;
             this.label6.Text = "T. Kullanılan: ";
             // 
@@ -122,10 +122,10 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(116, 81);
+            this.label7.Location = new System.Drawing.Point(123, 69);
             this.label7.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(68, 20);
+            this.label7.Size = new System.Drawing.Size(54, 16);
             this.label7.TabIndex = 0;
             this.label7.Text = "Kalan: ";
             // 
@@ -157,7 +157,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(277, 240);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(277, 228);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // label1
@@ -166,7 +166,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 20);
+            this.label1.Size = new System.Drawing.Size(55, 16);
             this.label1.TabIndex = 7;
             this.label1.Text = "Cari No:";
             // 
@@ -174,9 +174,9 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 38);
+            this.label2.Location = new System.Drawing.Point(24, 34);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 20);
+            this.label2.Size = new System.Drawing.Size(34, 16);
             this.label2.TabIndex = 8;
             this.label2.Text = "İsim:";
             // 
@@ -184,9 +184,9 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 70);
+            this.label3.Location = new System.Drawing.Point(4, 62);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 20);
+            this.label3.Size = new System.Drawing.Size(54, 16);
             this.label3.TabIndex = 9;
             this.label3.Text = "Kart No:";
             // 
@@ -194,11 +194,11 @@
             // 
             this.mtbCariNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.mtbCariNo.Enabled = false;
-            this.mtbCariNo.Location = new System.Drawing.Point(77, 3);
+            this.mtbCariNo.Location = new System.Drawing.Point(61, 3);
             this.mtbCariNo.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.mtbCariNo.Mask = "\\C0\\-00000";
             this.mtbCariNo.Name = "mtbCariNo";
-            this.mtbCariNo.Size = new System.Drawing.Size(200, 26);
+            this.mtbCariNo.Size = new System.Drawing.Size(200, 22);
             this.mtbCariNo.TabIndex = 0;
             this.mtbCariNo.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
@@ -206,20 +206,20 @@
             // 
             this.tbIsim.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tbIsim.Enabled = false;
-            this.tbIsim.Location = new System.Drawing.Point(77, 35);
+            this.tbIsim.Location = new System.Drawing.Point(61, 31);
             this.tbIsim.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.tbIsim.Name = "tbIsim";
-            this.tbIsim.Size = new System.Drawing.Size(200, 26);
+            this.tbIsim.Size = new System.Drawing.Size(200, 22);
             this.tbIsim.TabIndex = 1;
             // 
             // tbKartNo
             // 
             this.tbKartNo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tbKartNo.Enabled = false;
-            this.tbKartNo.Location = new System.Drawing.Point(77, 67);
+            this.tbKartNo.Location = new System.Drawing.Point(61, 59);
             this.tbKartNo.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.tbKartNo.Name = "tbKartNo";
-            this.tbKartNo.Size = new System.Drawing.Size(200, 26);
+            this.tbKartNo.Size = new System.Drawing.Size(200, 22);
             this.tbKartNo.TabIndex = 2;
             // 
             // btnNew
@@ -227,7 +227,7 @@
             this.btnNew.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.SetColumnSpan(this.btnNew, 2);
-            this.btnNew.Location = new System.Drawing.Point(0, 99);
+            this.btnNew.Location = new System.Drawing.Point(0, 87);
             this.btnNew.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(277, 30);
@@ -242,7 +242,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.SetColumnSpan(this.btnSave, 2);
             this.btnSave.Enabled = false;
-            this.btnSave.Location = new System.Drawing.Point(0, 135);
+            this.btnSave.Location = new System.Drawing.Point(0, 123);
             this.btnSave.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(277, 30);
@@ -257,7 +257,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.SetColumnSpan(this.btnDelete, 2);
             this.btnDelete.Enabled = false;
-            this.btnDelete.Location = new System.Drawing.Point(0, 171);
+            this.btnDelete.Location = new System.Drawing.Point(0, 159);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(277, 30);
@@ -272,7 +272,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.SetColumnSpan(this.btnVazgec, 2);
             this.btnVazgec.Enabled = false;
-            this.btnVazgec.Location = new System.Drawing.Point(0, 207);
+            this.btnVazgec.Location = new System.Drawing.Point(0, 195);
             this.btnVazgec.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.btnVazgec.Name = "btnVazgec";
             this.btnVazgec.Size = new System.Drawing.Size(277, 30);
@@ -294,13 +294,13 @@
             this.cIsim,
             this.cKartNo});
             this.dgvCariler.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvCariler.Location = new System.Drawing.Point(0, 31);
+            this.dgvCariler.Location = new System.Drawing.Point(0, 27);
             this.dgvCariler.Name = "dgvCariler";
             this.dgvCariler.ReadOnly = true;
             this.dgvCariler.RowHeadersVisible = false;
             this.dgvCariler.RowHeadersWidth = 51;
             this.dgvCariler.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCariler.Size = new System.Drawing.Size(660, 509);
+            this.dgvCariler.Size = new System.Drawing.Size(660, 513);
             this.dgvCariler.TabIndex = 1;
             // 
             // cId
@@ -318,7 +318,7 @@
             this.cCariNo.MinimumWidth = 6;
             this.cCariNo.Name = "cCariNo";
             this.cCariNo.ReadOnly = true;
-            this.cCariNo.Width = 99;
+            this.cCariNo.Width = 80;
             // 
             // cIsim
             // 
@@ -326,7 +326,7 @@
             this.cIsim.MinimumWidth = 6;
             this.cIsim.Name = "cIsim";
             this.cIsim.ReadOnly = true;
-            this.cIsim.Width = 69;
+            this.cIsim.Width = 56;
             // 
             // cKartNo
             // 
@@ -334,7 +334,7 @@
             this.cKartNo.MinimumWidth = 6;
             this.cKartNo.Name = "cKartNo";
             this.cKartNo.ReadOnly = true;
-            this.cKartNo.Width = 99;
+            this.cKartNo.Width = 79;
             // 
             // menuStrip1
             // 
@@ -345,34 +345,33 @@
             this.toolStripTextBox1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(960, 31);
+            this.menuStrip1.Size = new System.Drawing.Size(960, 27);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // ayarlarToolStripMenuItem
             // 
             this.ayarlarToolStripMenuItem.Name = "ayarlarToolStripMenuItem";
-            this.ayarlarToolStripMenuItem.Size = new System.Drawing.Size(70, 27);
+            this.ayarlarToolStripMenuItem.Size = new System.Drawing.Size(56, 23);
             this.ayarlarToolStripMenuItem.Text = "Ayarlar";
             this.ayarlarToolStripMenuItem.Click += new System.EventHandler(this.ayarlarToolStripMenuItem_Click);
             // 
             // labelMenuItem
             // 
             this.labelMenuItem.Name = "labelMenuItem";
-            this.labelMenuItem.Size = new System.Drawing.Size(32, 24);
+            this.labelMenuItem.Size = new System.Drawing.Size(25, 20);
             this.labelMenuItem.Text = "Ara";
             // 
             // toolStripTextBox1
             // 
-            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 27);
+            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
             this.toolStripTextBox1.TextChanged += new System.EventHandler(this.toolStripTextBox1_TextChanged);
             // 
             // MainForm
             // 
             this.AcceptButton = this.btnSave;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(960, 540);
             this.Controls.Add(this.dgvCariler);
