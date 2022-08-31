@@ -5,7 +5,7 @@ namespace Migros
 {
     public class Siparis
     {
-        public Siparis(ulong id, ulong sipNo, long puan, long kullanilan, DateTime islemTarihi)
+        public Siparis(ulong id, ulong sipNo, decimal puan, decimal kullanilan, DateTime islemTarihi)
         {
             Id = id;
             SipNo = sipNo;
@@ -15,15 +15,14 @@ namespace Migros
         }
 
         [JsonIgnore]
-        internal ulong Id { get; set; }
+        public ulong Id { get; set; }
 
-        internal ulong SipNo { get; set; }
-        internal long Puan { get; set; }
+        public ulong SipNo { get; set; }
+        public decimal Puan { get; set; }
+        public decimal Kullanilan { get; set; }
+        public DateTime IslemTarihi { get; set; }
 
         [JsonIgnore]
-        internal decimal TL => Puan * Globals.settings.puanCarpani;
-
-        internal long Kullanilan { get; set; }
-        internal DateTime IslemTarihi { get; set; }
+        public decimal TL => Puan * Globals.settings.puanCarpani;
     }
 }

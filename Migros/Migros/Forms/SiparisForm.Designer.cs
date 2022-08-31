@@ -60,12 +60,12 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(767, 27);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(767, 31);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(300, 527);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(300, 523);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -89,7 +89,7 @@
             this.tableLayoutPanel2.Controls.Add(this.nudPuan, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.nudKullanilan, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.dtpIslemTarihi, 1, 4);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 165);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 161);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 9;
@@ -102,16 +102,16 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(300, 282);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(300, 302);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 6);
+            this.label1.Location = new System.Drawing.Point(12, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 16);
+            this.label1.Size = new System.Drawing.Size(92, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Sipariş No:";
             // 
@@ -119,9 +119,9 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(41, 34);
+            this.label2.Location = new System.Drawing.Point(52, 38);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 16);
+            this.label2.Size = new System.Drawing.Size(52, 20);
             this.label2.TabIndex = 0;
             this.label2.Text = "Puan:";
             // 
@@ -129,9 +129,9 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 62);
+            this.label3.Location = new System.Drawing.Point(18, 70);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 16);
+            this.label3.Size = new System.Drawing.Size(86, 20);
             this.label3.TabIndex = 0;
             this.label3.Text = "Kullanılan:";
             // 
@@ -142,9 +142,9 @@
             this.cbIslemTarihi.CheckState = System.Windows.Forms.CheckState.Checked;
             this.tableLayoutPanel2.SetColumnSpan(this.cbIslemTarihi, 2);
             this.cbIslemTarihi.Enabled = false;
-            this.cbIslemTarihi.Location = new System.Drawing.Point(3, 87);
+            this.cbIslemTarihi.Location = new System.Drawing.Point(3, 99);
             this.cbIslemTarihi.Name = "cbIslemTarihi";
-            this.cbIslemTarihi.Size = new System.Drawing.Size(151, 20);
+            this.cbIslemTarihi.Size = new System.Drawing.Size(190, 24);
             this.cbIslemTarihi.TabIndex = 1;
             this.cbIslemTarihi.Text = "Otomatik İşlem Tarihi";
             this.cbIslemTarihi.UseVisualStyleBackColor = true;
@@ -154,9 +154,9 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 116);
+            this.label4.Location = new System.Drawing.Point(3, 132);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 16);
+            this.label4.Size = new System.Drawing.Size(101, 20);
             this.label4.TabIndex = 0;
             this.label4.Text = "İşlem Tarihi:";
             this.label4.Visible = false;
@@ -166,7 +166,7 @@
             this.btnNew.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.SetColumnSpan(this.btnNew, 2);
-            this.btnNew.Location = new System.Drawing.Point(0, 141);
+            this.btnNew.Location = new System.Drawing.Point(0, 161);
             this.btnNew.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(307, 30);
@@ -181,7 +181,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.SetColumnSpan(this.btnSave, 2);
             this.btnSave.Enabled = false;
-            this.btnSave.Location = new System.Drawing.Point(0, 177);
+            this.btnSave.Location = new System.Drawing.Point(0, 197);
             this.btnSave.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(307, 30);
@@ -196,7 +196,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.SetColumnSpan(this.btnDelete, 2);
             this.btnDelete.Enabled = false;
-            this.btnDelete.Location = new System.Drawing.Point(0, 213);
+            this.btnDelete.Location = new System.Drawing.Point(0, 233);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(307, 30);
@@ -211,7 +211,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.SetColumnSpan(this.btnVazgec, 2);
             this.btnVazgec.Enabled = false;
-            this.btnVazgec.Location = new System.Drawing.Point(0, 249);
+            this.btnVazgec.Location = new System.Drawing.Point(0, 269);
             this.btnVazgec.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.btnVazgec.Name = "btnVazgec";
             this.btnVazgec.Size = new System.Drawing.Size(307, 30);
@@ -223,21 +223,31 @@
             // mtbSipNo
             // 
             this.mtbSipNo.Enabled = false;
-            this.mtbSipNo.Location = new System.Drawing.Point(85, 3);
+            this.mtbSipNo.Location = new System.Drawing.Point(107, 3);
             this.mtbSipNo.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.mtbSipNo.Mask = "\\S000000";
             this.mtbSipNo.Name = "mtbSipNo";
-            this.mtbSipNo.Size = new System.Drawing.Size(200, 22);
+            this.mtbSipNo.Size = new System.Drawing.Size(200, 26);
             this.mtbSipNo.TabIndex = 3;
             this.mtbSipNo.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // nudPuan
             // 
             this.nudPuan.Enabled = false;
-            this.nudPuan.Location = new System.Drawing.Point(85, 31);
+            this.nudPuan.Location = new System.Drawing.Point(107, 35);
             this.nudPuan.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.nudPuan.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
+            this.nudPuan.Minimum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            -2147483648});
             this.nudPuan.Name = "nudPuan";
-            this.nudPuan.Size = new System.Drawing.Size(200, 22);
+            this.nudPuan.Size = new System.Drawing.Size(200, 26);
             this.nudPuan.TabIndex = 4;
             this.nudPuan.Enter += new System.EventHandler(this.nuds_Enter);
             this.nudPuan.MouseDown += new System.Windows.Forms.MouseEventHandler(this.nuds_MouseDown);
@@ -245,10 +255,20 @@
             // nudKullanilan
             // 
             this.nudKullanilan.Enabled = false;
-            this.nudKullanilan.Location = new System.Drawing.Point(85, 59);
+            this.nudKullanilan.Location = new System.Drawing.Point(107, 67);
             this.nudKullanilan.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.nudKullanilan.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
+            this.nudKullanilan.Minimum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            -2147483648});
             this.nudKullanilan.Name = "nudKullanilan";
-            this.nudKullanilan.Size = new System.Drawing.Size(200, 22);
+            this.nudKullanilan.Size = new System.Drawing.Size(200, 26);
             this.nudKullanilan.TabIndex = 4;
             this.nudKullanilan.Enter += new System.EventHandler(this.nuds_Enter);
             this.nudKullanilan.MouseDown += new System.Windows.Forms.MouseEventHandler(this.nuds_MouseDown);
@@ -257,10 +277,10 @@
             // 
             this.dtpIslemTarihi.CustomFormat = "dd.MM.yyyy";
             this.dtpIslemTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpIslemTarihi.Location = new System.Drawing.Point(85, 113);
+            this.dtpIslemTarihi.Location = new System.Drawing.Point(107, 129);
             this.dtpIslemTarihi.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.dtpIslemTarihi.Name = "dtpIslemTarihi";
-            this.dtpIslemTarihi.Size = new System.Drawing.Size(200, 22);
+            this.dtpIslemTarihi.Size = new System.Drawing.Size(200, 26);
             this.dtpIslemTarihi.TabIndex = 5;
             this.dtpIslemTarihi.Visible = false;
             // 
@@ -284,17 +304,17 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(300, 85);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(300, 101);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(116, 3);
+            this.label5.Location = new System.Drawing.Point(107, 3);
             this.label5.Margin = new System.Windows.Forms.Padding(3);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 16);
+            this.label5.Size = new System.Drawing.Size(85, 20);
             this.label5.TabIndex = 0;
             this.label5.Text = "T. Puan: ";
             // 
@@ -302,10 +322,10 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(124, 25);
+            this.label6.Location = new System.Drawing.Point(117, 29);
             this.label6.Margin = new System.Windows.Forms.Padding(3);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 16);
+            this.label6.Size = new System.Drawing.Size(65, 20);
             this.label6.TabIndex = 0;
             this.label6.Text = "T. TL: ";
             // 
@@ -313,10 +333,10 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(100, 47);
+            this.label7.Location = new System.Drawing.Point(87, 55);
             this.label7.Margin = new System.Windows.Forms.Padding(3);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(100, 16);
+            this.label7.Size = new System.Drawing.Size(125, 20);
             this.label7.TabIndex = 0;
             this.label7.Text = "T. Kullanılan: ";
             // 
@@ -324,10 +344,10 @@
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(123, 69);
+            this.label8.Location = new System.Drawing.Point(116, 81);
             this.label8.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(54, 16);
+            this.label8.Size = new System.Drawing.Size(68, 20);
             this.label8.TabIndex = 0;
             this.label8.Text = "Kalan: ";
             // 
@@ -344,13 +364,13 @@
             this.cKullanilan,
             this.cIslemTarihi});
             this.dgvSiparisler.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvSiparisler.Location = new System.Drawing.Point(0, 27);
+            this.dgvSiparisler.Location = new System.Drawing.Point(0, 31);
             this.dgvSiparisler.Name = "dgvSiparisler";
             this.dgvSiparisler.ReadOnly = true;
             this.dgvSiparisler.RowHeadersVisible = false;
             this.dgvSiparisler.RowHeadersWidth = 51;
             this.dgvSiparisler.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSiparisler.Size = new System.Drawing.Size(767, 527);
+            this.dgvSiparisler.Size = new System.Drawing.Size(767, 523);
             this.dgvSiparisler.TabIndex = 1;
             // 
             // cId
@@ -404,39 +424,41 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.yazdırToolStripMenuItem,
             this.labelMenuItem,
             this.toolStripTextBox1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1067, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(1067, 31);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // yazdırToolStripMenuItem
             // 
             this.yazdırToolStripMenuItem.Name = "yazdırToolStripMenuItem";
-            this.yazdırToolStripMenuItem.Size = new System.Drawing.Size(50, 23);
+            this.yazdırToolStripMenuItem.Size = new System.Drawing.Size(63, 27);
             this.yazdırToolStripMenuItem.Text = "Yazdır";
             this.yazdırToolStripMenuItem.Click += new System.EventHandler(this.yazdırToolStripMenuItem_Click);
             // 
             // labelMenuItem
             // 
             this.labelMenuItem.Name = "labelMenuItem";
-            this.labelMenuItem.Size = new System.Drawing.Size(25, 20);
+            this.labelMenuItem.Size = new System.Drawing.Size(32, 24);
             this.labelMenuItem.Text = "Ara";
             // 
             // toolStripTextBox1
             // 
+            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 27);
             this.toolStripTextBox1.TextChanged += new System.EventHandler(this.toolStripTextBox1_TextChanged);
             // 
             // SiparisForm
             // 
             this.AcceptButton = this.btnSave;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.dgvSiparisler);

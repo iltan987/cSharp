@@ -4,7 +4,7 @@ using System.Windows.Forms.Design;
 namespace Migros
 {
     [ToolStripItemDesignerAvailability(ToolStripItemDesignerAvailability.MenuStrip | ToolStripItemDesignerAvailability.ContextMenuStrip)]
-    internal class LabelMenuItem : ToolStripControlHost
+    public class LabelMenuItem : ToolStripControlHost
     {
         private Label label;
 

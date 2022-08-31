@@ -14,9 +14,9 @@ using Text = iText.Layout.Element.Text;
 
 namespace Migros
 {
-    internal static class Printer
+    public static class Printer
     {
-        internal static void Print(Cari cari, List<Siparis> siparisler)
+        public static void Print(Cari cari, List<Siparis> siparisler)
         {
             var now = DateTime.Now;
             string fileName = "Migros-" + DateTime.Now.ToString("dd.MM.yyyy HH.mm.ss") + " " + cari.CariNo.ToString(Globals.settings.cariNoFormat);
@@ -55,10 +55,10 @@ namespace Migros
 
                 document.Add(table);
 
-                long toplamPuan = siparisler.Sum(f => f.Puan);
-                decimal toplamTL = siparisler.Sum(f => f.TL);
-                long toplamKullanilan = siparisler.Sum(f => f.Kullanilan);
-                decimal kalan = toplamTL - toplamKullanilan;
+                decimal toplamPuan = siparisler.Sum(f => f.Puan),
+                    toplamTL = siparisler.Sum(f => f.TL),
+                    toplamKullanilan = siparisler.Sum(f => f.Kullanilan),
+                    kalan = toplamTL - toplamKullanilan;
 
                 document.Add(new Paragraph(new Text("Toplam Puan: ").SetFont(bold)).Add(new Text(toplamPuan.ToString()).SetFont(font)));
                 document.Add(new Paragraph(new Text("Toplam TL: ").SetFont(bold)).Add(new Text(toplamTL.ToString(Globals.settings.tlFormat)).SetFont(font)));

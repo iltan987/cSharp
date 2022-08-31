@@ -48,8 +48,8 @@ namespace Migros.Forms
                 var cells = dgvSiparisler.SelectedRows[0].Cells;
 
                 mtbSipNo.Text = ((ulong)cells[nameof(cSipNo)].Value).ToString(mtbSipNo.Mask);
-                nudPuan.Value = Convert.ToDecimal((long)cells[nameof(cPuan)].Value);
-                nudKullanilan.Value = Convert.ToDecimal((long)cells[nameof(cKullanilan)].Value);
+                nudPuan.Value = (decimal)cells[nameof(cPuan)].Value;
+                nudKullanilan.Value = (decimal)cells[nameof(cKullanilan)].Value;
                 cbIslemTarihi.Checked = false;
                 dtpIslemTarihi.Value = (DateTime)cells[nameof(cIslemTarihi)].Value;
 
@@ -126,7 +126,7 @@ namespace Migros.Forms
                 siparis.IslemTarihi = dtpIslemTarihi.Value;
             }
 
-            long puan = Convert.ToInt64(nudPuan.Value), kullanilan = Convert.ToInt64(nudKullanilan.Value);
+            decimal puan = nudPuan.Value, kullanilan = nudKullanilan.Value;
             siparis.Puan = puan;
             siparis.Kullanilan = kullanilan;
             Cari.SaveSiparis(siparis);
@@ -201,7 +201,7 @@ namespace Migros.Forms
                     row.Cells[nameof(cTL)].Value.ToString().ToLower().Contains(search) ||
                     ((decimal)row.Cells[nameof(cTL)].Value).ToString(cTL.DefaultCellStyle.Format).ToLower().Contains(search) ||
                     row.Cells[nameof(cKullanilan)].Value.ToString().ToLower().Contains(search) ||
-                    ((long)row.Cells[nameof(cKullanilan)].Value).ToString(cKullanilan.DefaultCellStyle.Format).ToLower().Contains(search) ||
+                    ((decimal)row.Cells[nameof(cKullanilan)].Value).ToString(cKullanilan.DefaultCellStyle.Format).ToLower().Contains(search) ||
                     ((DateTime)row.Cells[nameof(cIslemTarihi)].Value).ToString(cIslemTarihi.DefaultCellStyle.Format).ToLower().Contains(search))
                 {
                     Invoke(new MethodInvoker(() =>

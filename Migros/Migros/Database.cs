@@ -6,9 +6,9 @@ using System.Linq;
 
 namespace Migros
 {
-    internal class Database
+    public class Database
     {
-        internal List<Cari> GetCariler()
+        public List<Cari> GetCariler()
         {
             List<Cari> cariler = new List<Cari>();
 
@@ -22,7 +22,7 @@ namespace Migros
             return cariler;
         }
 
-        internal void Backup()
+        public void Backup()
         {
             var now = DateTime.Now;
             var target = Directory.CreateDirectory(Path.Combine(Globals.YedeklerDirPath, now.ToString("dd.MM.yyyy HH.mm.ss.fff")));
@@ -38,7 +38,7 @@ namespace Migros
                 Directory.Delete(item.path, true);
         }
 
-        internal void CopyFilesRecursively(DirectoryInfo source, DirectoryInfo target)
+        public void CopyFilesRecursively(DirectoryInfo source, DirectoryInfo target)
         {
             foreach (DirectoryInfo dir in source.GetDirectories())
                 CopyFilesRecursively(dir, target.CreateSubdirectory(dir.Name));
